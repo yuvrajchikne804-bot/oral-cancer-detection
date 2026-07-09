@@ -1,0 +1,22 @@
+# Ignore virtual environments to prevent copying bulky local python packages into the image
+.venv/
+venv/
+env/
+
+# Ignore compiled Python files and caches to avoid stale compilation state inside the container
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore version control systems and configurations
+.git/
+.gitignore
+.gitattributes
+
+# Ignore IDE specific folders and configurations
+.vscode/
+.idea/
+
+# Ignore local logs and debug dumps
+*.log

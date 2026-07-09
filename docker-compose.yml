@@ -1,0 +1,48 @@
+# Define the services (containers) that make up our application.
+services:
+
+  # Backend Service: Flask Python API
+  backend:
+    # Build configuration for the backend container.
+    build:
+      # The directory context containing the Dockerfile and source files.
+      context: ./backend
+      # The Dockerfile name to use for building the image.
+      dockerfile: Dockerfile
+    # Specify the name of the container when running.
+    container_name: oral-cancer-backend
+    # Map port 5000 from the container to port 5000 on the host machine.
+    # This exposes the Flask API endpoints to localhost:5000.
+    ports:
+      - "5000:5000"
+    # Define environment variables passed to the container.
+    environment:
+      - FLASK_ENV=production
+    # Restart policy: Always restart the container if it stops or crashes.
+    restart: always
+
+  # Frontend Service: React Web App (Vite Dev Server)
+  frontend:
+    # Build configuration for the frontend container.
+    build:
+      # The directory context containing the Dockerfile and source files.
+      context: ./frontend
+      # The Dockerfile name to use for building the image.
+      dockerfile: Dockerfile
+    # Specify the name of the container when running.
+    container_name: oral-cancer-frontend
+    # Map port 3000 from the container to port 3000 on the host machine.
+    # This exposes the Vite development server to localhost:3000.
+    ports:
+      - "3000:3000"
+    # Define environment variables passed to the container at runtime.
+    # VITE_BACKEND_URL instructs the React client-side code where to send API requests.
+    # When running locally, Vite serves the client files to the browser,
+    # which then sends HTTP requests to localhost:5000 where our backend container exposes port 5000.
+    environment:
+      - VITE_BACKEND_URL=http://localhost:5000
+    # Declare dependencies: frontend depends on backend being started first.
+    depends_on:
+      - backend
+    # Restart policy: Always restart the container if it stops or crashes.
+    restart: always

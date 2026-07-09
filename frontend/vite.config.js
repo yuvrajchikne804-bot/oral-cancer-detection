@@ -4,5 +4,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: "./",   // ⭐ YE LINE ADD KAR
-  server: { port: 3000 },
+  server: { 
+    port: 3000,
+    host: true, // Enable binding to 0.0.0.0 for access within Docker
+  },
 })

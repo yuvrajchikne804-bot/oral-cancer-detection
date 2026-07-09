@@ -1,0 +1,38 @@
+# 🔥 Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🔥 Virtual Environment (VERY IMPORTANT)
+.venv/
+venv/
+env/
+
+# 🔥 Environment variables
+.env
+
+# 🔥 Logs
+logs/
+*.log
+
+# 🔥 ML / Large files (optional but useful)
+*.h5
+*.pt
+*.pth
+*.ckpt
+
+# 🔥 Jupyter Notebook
+.ipynb_checkpoints/
+
+# 🔥 VS Code / IDE
+.vscode/
+.idea/
+
+# 🔥 OS files
+.DS_Store
+Thumbs.db
+
+# 🔥 Node (frontend)
+node_modules/
+dist/

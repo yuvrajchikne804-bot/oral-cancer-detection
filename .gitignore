@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Env file
+.env
+
+# Logs
+*.log
+
+# ML large files
+*.h5
+*.pt
+
+# Node (frontend)
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
